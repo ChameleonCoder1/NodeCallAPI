@@ -1,0 +1,20 @@
+{
+  "name": "bing-web-search",
+  "version": "1.0.0",
+  "description": "A single-page web app that displays Bing Web Search results, including pages, images, news articles, and video thumbnails.",
+  "main": "bing-web-search.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.2",
+    "popups": "^1.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node bing-web-search.js"
+  },
+  "author": "Microsoft Corporation"
+}
