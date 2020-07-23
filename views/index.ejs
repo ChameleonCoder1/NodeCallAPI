@@ -1,0 +1,160 @@
+
+<% include partials\header.ejs %>
+
+
+<div class="container2">
+    <div class="ui divider">
+        <div class="ui two column centered grid">
+            <div class="row">
+                <div class="column">
+                </div>
+                <div class="column">
+                </div>
+            </div>
+            <div class="row" id="callers">
+                <div class="column">
+                        <form name="bing" id="form_bing" onsubmit="return bingWebSearch(this.query.value,
+                            bingSearchOptions(this), getSubscriptionKey())">
+
+
+                        <div id="query"><!-- query controls including search field and options -->
+                          <div class="ui center big action input">
+
+                              <input type="text" name="query" id="term" autocomplete=off>
+                              <button class="ui teal labeled icon button" type="submit" form="form_bing" value="submit">
+                                <i class="phone volume icon"></i>
+                                Call Bing API
+                              </button>
+                          </div>
+
+                            <!-- these hidden fields control paging -->
+                            <input type=hidden name="count" value="5">
+                            <input type=hidden name="offset" value="0">
+
+                        </form>
+
+                        </div>
+                            <div id="error">
+                            <h2>Error</h2>
+                            <div id="_error">
+                            </div>
+                        </div>
+
+                </div>
+                <div class="column">
+                    <div class="ui center big action input">
+                        <input name="searchTxt" type="text" id="searchTxt" class="searchField">
+                        <button class="ui teal labeled icon button" onclick="callGoogleAPI()">
+                          <i class="phone volume icon"></i>
+                          Call Google API
+                        </button>
+                    </div>
+
+                </div>
+          </div>
+
+            <div class="row">
+              <div class="column">
+                  <h1>Bing Web Search API</h2>
+                      <h2>Results</h2>
+                      <div id="paging1">
+                          <div id="_paging1"></div>
+                      </div>
+
+                      <div id="noresults">
+                          <div id="_noresults">None yet.</div>
+                      </div>
+
+                      <div id="sidebar">
+                          <div id="_sidebar"></div>
+                      </div>
+
+                      <div id="pole">
+                          <div id="_pole"></div>
+                      </div>
+
+                      <div id="mainline">
+                          <div id="_mainline"></div>
+                      </div>
+
+                      <div id="paging2">
+                          <div id="_paging2"></div>
+                      </div>
+
+                      <div id="json">
+                          <h3><a href="#" onclick="return toggleDisplay('_json')">JSON</a></h3>
+                          <div id="_json" style="display: none"></div>
+                      </div>
+
+                      <div id="http">
+                          <h3><a href="#" onclick="return toggleDisplay('_http')">HTTP</a></h3>
+                          <div id="_http" style="display: none"></div>
+                      </div>
+              </div>
+              <div class="column">
+                <h1>Google Knowledge Graph API</h2>
+                  <h2>Results</h2>
+                  <p id="googlekg">
+                  </p>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                  <div class="ui main text container segment">
+                      <div class="ui huge header">Write to db</div>
+
+                      <form class="ui form" action="/data" method="POST">
+                          <div class="field">
+                              <label>Search Term/String</label>
+                              <input type="text" name="search_term">
+                          </div>
+                          <div class="field">
+                              <label>Bing Results to Save</label>
+                              <textarea name="bingresults"></textarea>
+                          </div>
+                          <div class="field">
+                              <label>Google Results to Save</label>
+                              <textarea name="googleresults"></textarea>
+                          </div>
+                          <div class="field">
+                              <label>Additional Notes</label>
+                              <textarea name="notes"></textarea>
+                          </div>
+                          <div class="field">
+                              <label>Date Posted</label>
+                              <input type="date" name="created">
+                          </div>
+                          <input class="ui blue big basic button" type="submit">
+                      </form>
+
+                  </div>
+
+                </div>
+                <div class="column">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<hr></hr>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+
+
+
+
+
+
+</body>
+</html>

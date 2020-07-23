@@ -1,0 +1,45 @@
+<% include partials\header.ejs %>
+
+
+
+<div class="container2">
+        <div class="two column relaxed ui grid">
+          <% allposts.forEach(function(thispost){ %>
+            <div class="ui card">
+                  <div class="content">
+                    <div class="header"> <h3><%= thispost.searchterm %></h3> </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="ui sub header">Bing API</h4>
+                    <div class="ui small feed">
+                      <div class="event">
+                        <div class="content">
+                          <div class="summary">
+                             <%= thispost.bingresults %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 class="ui sub header">Google API</h4>
+                    <div class="ui small feed">
+                      <div class="event">
+                        <div class="content">
+                          <div class="summary">
+                             <%= thispost.googleresults %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <div class="summary">
+                       <%= thispost.notes %>
+                    </div>
+                    <form id="nick1" action="/data/<%= thispost._id %>?_method=DELETE" method="POST">
+                        <button class="ui red basic button">Delete</button>
+                    </form>
+                  </div>
+            </div>
+          <% }) %>
+        </div>
+</div>
